@@ -1,21 +1,62 @@
-import { Button, Typography } from '@mui/material'
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-
+import React from "react";
+import { AppBar, Toolbar, Typography, Button, Box, Container,Link } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import '../index.css'
 function Home() {
   const navigate = useNavigate();
-  function handleChange(){
-    navigate('/setting');
-  }
+
   return (
     <>
-    <Typography variant='h1' mb={3}>Home Page</Typography>
-      <Button onClick={handleChange} fullWidth variant='contained'>
-        Click me UwU
-      </Button>
+      {/* Navbar */}
+      <AppBar position="fixed" sx={{ backgroundColor: "#FFA500", boxShadow: "none" ,alignItems:'center'}}>
+        <Toolbar sx={{ justifyContent: "space-between", maxWidth:'1200px'}}>
+          <Box component='img' src="/image/logo.png" width='5%'>
+
+          </Box>
+          {/* Navigation Links */}
+          <Box>
+              <Button
+                sx={{ color: "#fff", fontSize: "14px", textTransform: "capitalize", mx: 1 }}
+                onClick={() => navigate(`/`)}
+              >Home
+              </Button>
+              
+            
+          </Box>
+        </Toolbar>
+      </AppBar>
+
+      {/* Main Content */}
+      <Container maxWidth="lg">
+        <Box display="flex" alignItems="center" justifyContent="space-between" height='100vh'>
+          {/* Left Section: Text */}
+          <Box display="flex" justifyContent='space-between' alignItems='center' gap='50px'>
+            {/* left Section: Image */}
+
+
+
+            <Box sx={{width:'50%', textAlign:'left'}} >
+              <Typography variant="h2" sx={{ fontWeight: "bold", color: "#2B3990" }}>
+                <span style={{ color: "#FFA500" }}>QUIZ</span> NOW
+              </Typography>
+              <Typography variant="h6" sx={{ color: "#6C757D", mt: 2}}>
+                The versatile data collection tool for professionals. Typeform makes asking easy & answering refreshing.
+              </Typography>
+              <Button
+                variant="contained" onClick={() => navigate('/setting')}
+                sx={{ mt: 3, borderRadius: "30px", fontSize: "18px", padding: "10px 25px", backgroundColor: "#FFA500" }}
+              >
+                  <Typography fontWeight='bold'>Let's do it!</Typography>
+              </Button>
+            </Box>
+            <Box className="heroImage" component="img" src="/image/17786964_5898772.png" alt="Quiz Illustration" sx={{ width: "60%" }} />
+          </Box>
+
+          
+        </Box>
+      </Container>
     </>
-    
-  )
+  );
 }
 
-export default Home
+export default Home;

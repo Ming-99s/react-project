@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FormControl,InputLabel,Box, Select, MenuItem } from '@mui/material'
 import { useDispatch } from 'react-redux';
-import { handleCategoryChnage, handleDifficultyChange, handleTypeChnage } from '../redux/action';
+import { handleCategoryChange, handleDifficultyChange, handleTypeChange } from '../redux/action';
 function SelectBox(props) {
 
     const dispatch = useDispatch();
@@ -11,13 +11,13 @@ function SelectBox(props) {
         setValue(e.target.value);
         switch(props.label){
             case "Category":
-                dispatch(handleCategoryChnage(e.target.value));
+                dispatch(handleCategoryChange(e.target.value));
                 break;
             case "Difficulty":
                 dispatch(handleDifficultyChange(e.target.value));
                 break;
             case "Type":
-                dispatch(handleTypeChnage(e.target.value));
+                dispatch(handleTypeChange(e.target.value));
                 break;
             default:
                 return;

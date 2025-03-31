@@ -4,7 +4,7 @@ import { Box, Button, CircularProgress, Typography } from '@mui/material'
 import NumbeCom from '../components/NumbeCom'
 import useAxois from '../hook/useAxois'
 import { useNavigate} from 'react-router-dom'
-
+import '../style/setting.css'
 function Setting() {
     const navigate = useNavigate();
 
@@ -16,14 +16,14 @@ function Setting() {
     console.log(response)
     if(loading){
         return(
-            <Box mt={10}>
-            <CircularProgress />
+            <Box sx={{display:'flex', justifyContent:'center' ,alignItems:'center', height:'100vh'}}>
+            <CircularProgress sx={{ color: '#FFA500' }} />
         </Box>
     )
 }
 if(error){
     return(
-        <Box mt={10}>
+        <Box mt={10} sx={{display:'flex', justifyContent:'center' ,alignItems:'center'}}>
             <Typography variant='h3' fontWeight='bold' color='red' >You are Cooked🤡</Typography>
             <Typography variant='p' fontSize={20} color='black' >Somthing went Wrong</Typography>
 
@@ -43,14 +43,21 @@ const Type = [
   
   return (
     <>
-        <SelectBox label="Category" options={response.trivia_categories} ></SelectBox>
-        <SelectBox label="Difficulty" options={DifficultyOp}></SelectBox>
-        <SelectBox label="Type" options={Type}></SelectBox>
-        <NumbeCom label="Amount of Question"></NumbeCom>
+    <div className='heroBox'>
 
-        <Box mt={3}>
-    	    <Button fullWidth variant='contained' type='submit' onClick={handleClick}>Get Started</Button>
-        </Box>
+    <Box component='img' src='/image/logo.png' width='15%' ></Box>
+        <div className='container'>
+            <SelectBox label="Category" options={response.trivia_categories} ></SelectBox>
+            <SelectBox label="Difficulty" options={DifficultyOp}></SelectBox>
+            <SelectBox label="Type" options={Type}></SelectBox>
+            <NumbeCom label="Amount of Question"></NumbeCom>
+
+            <Box mt={3}>
+        	    <Button fullWidth variant='contained' type='submit' onClick={handleClick} sx={{backgroundColor:'#FFA500'}}>Get Started</Button>
+            </Box>
+
+        </div>
+    </div>
     </>
   
 

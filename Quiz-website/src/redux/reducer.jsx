@@ -1,45 +1,49 @@
+import { RESET_ALL, Change_amount, Change_category, Change_difficulty, Change_score, Change_type } from "./actionType";
 
-import { Change_amount, Change_category, Change_difficulty, Change_score, Change_type } from "./actionType";
-
-
-const initialState = {
+let initialState = {
     Question_category: "",
-    Question_difficulty:"",
-    Question_type:"",
-    amount_of_Question:"",
-    score:0
-}
+    Question_difficulty: "",
+    Question_type: "",
+    amount_of_Question: "",
+    score: 0,
+};
 
-const reducer = (state = initialState,action) =>{
-    console.log("Dispatched Action:", action);
-    switch(action.type){
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
         case Change_category:
-            return{
+            return {
                 ...state,
-                Question_category:action.payload
-            }
+                Question_category: action.payload
+            };
         case Change_difficulty:
-            return{
+            return {
                 ...state,
-                Question_difficulty:action.payload
-            }
+                Question_difficulty: action.payload
+            };
         case Change_amount:
-            return{
+            return {
                 ...state,
-                amount_of_Question:action.payload
-            }
+                amount_of_Question: action.payload
+            };
         case Change_type:
-            return{
+            return {
                 ...state,
-                Question_type:action.payload
-            }
+                Question_type: action.payload
+            };
         case Change_score:
-            return{
+            return {
                 ...state,
-                score: state.score +1 
-            }
+                score: state.score + 1
+            };
+
+        case RESET_ALL:
+            return {
+                ...state,
+                score: 0
+            };
         default:
             return state;
     }
-}
+};
+
 export default reducer;
