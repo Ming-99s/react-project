@@ -1,13 +1,13 @@
 import { FormControl, TextField,Box } from '@mui/material'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { handleAmountChnage } from '../redux/action';
+import { handleAmountChange } from '../redux/action';
 
 function NumbeCom(props) {
     const dispatch = useDispatch();
 
     const handleChange = (e) =>{
-        dispatch(handleAmountChnage(e.target.value))
+        dispatch(handleAmountChange(e.target.value))
     }
     
   return (
