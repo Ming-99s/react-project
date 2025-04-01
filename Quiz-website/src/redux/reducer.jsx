@@ -38,8 +38,7 @@ const reducer = (state = initialState, action) => {
 
         case RESET_ALL:
             return {
-                ...state,
-                score: 0
+                ...initialState,
             };
         default:
             return state;
